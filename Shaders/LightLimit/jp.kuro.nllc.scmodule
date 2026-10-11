@@ -1,0 +1,15 @@
+{
+    "name": "NonToon LLC",
+    "uniqueID": "jp.kuro.nllc",
+    "phases": [
+        {
+            "name": "LightLimit",
+            "phase": "modifylight",
+            "afters": [ "Lighten" ]
+        },
+        {
+            "name": "LightLimitSaturation",
+            "phase": "postpixel"
+        }
+    ]
+}

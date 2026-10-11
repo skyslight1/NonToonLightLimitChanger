@@ -1,0 +1,27 @@
+{
+  "name": "jp.kuro.nontoon-light-limit-changer",
+  "version": "1.2.0",
+  "displayName": "NonToon Light Limit Changer",
+  "description": "Light Limit Changer 式的 NonToon 亮度控制：亮度上下限 / 饱和度 / 无光照 / 色温的表情菜单滑块。通过自带的 Shader Core 模块注入，不改 NonToon 本体；NDMF 非破坏式构建，Modular Avatar 菜单与参数全自动生成。",
+  "unity": "2022.3",
+  "keywords": [
+    "NonToon",
+    "Shader Core",
+    "Light Limit",
+    "Brightness",
+    "VRChat",
+    "Modular Avatar",
+    "NDMF"
+  ],
+  "author": {
+    "name": "KURO"
+  },
+  "license": "MIT",
+  "hideInEditor": false,
+  "vpmDependencies": {
+    "nadena.dev.ndmf": ">=1.4.0 <2.0.0",
+    "nadena.dev.modular-avatar": ">=1.9.9 <2.0.0",
+    "jp.lilxyzw.nontoon": "^0.1.3",
+    "jp.lilxyzw.shadercore": "^0.1.5"
+  }
+}
