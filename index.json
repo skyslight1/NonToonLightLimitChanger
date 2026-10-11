@@ -25,6 +25,23 @@
             "jp.lilxyzw.shadercore": "^0.1.5"
           },
           "url": "https://github.com/skyslight1/NonToonLightLimitChanger/releases/download/v1.2.0/jp.kuro.nontoon-light-limit-changer-1.2.0.zip"
+        },
+        "1.3.0": {
+          "version": "1.3.0",
+          "unity": "2022.3",
+          "displayName": "NonToon Light Limit Changer",
+          "description": "Light Limit Changer 式的 NonToon 亮度控制：亮度上下限 / 饱和度 / 无光照 / 色温的表情菜单滑块。通过自带的 Shader Core 模块注入，不改 NonToon 本体；NDMF 非破坏式构建，Modular Avatar 菜单与参数全自动生成。 / Menu language: Chinese or English.",
+          "author": {
+            "name": "KURO"
+          },
+          "license": "MIT",
+          "vpmDependencies": {
+            "nadena.dev.ndmf": ">=1.4.0 <2.0.0",
+            "nadena.dev.modular-avatar": ">=1.9.9 <2.0.0",
+            "jp.lilxyzw.nontoon": "^0.1.3",
+            "jp.lilxyzw.shadercore": "^0.1.5"
+          },
+          "url": "https://github.com/skyslight1/NonToonLightLimitChanger/releases/download/v1.3.0/jp.kuro.nontoon-light-limit-changer-1.3.0.zip"
         }
       }
     }
