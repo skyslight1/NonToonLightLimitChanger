@@ -642,19 +642,23 @@ namespace Kuro.NTLLC.Editor
 
         private static void BuildMenu(BuildContext context, NonToonLightLimitChanger settings, NTLLCParameters p, List<NTLLCPreset> presets)
         {
+            // 菜单文字语言：中文（默认）/ English
+            var en = p.MenuLanguage == NTLLCMenuLanguage.English;
+            string L(string zh, string enLabel) => en ? enLabel : zh;
+
             var rootMenu = NewMenu();
 
-            var enable = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.Toggle, "启用");
+            var enable = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.Toggle, L("启用", "Enable"));
             SetControlParameter(enable, ParamEnable, 1f);
 
             if (p.IsSeparateLightControl)
             {
-                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "最暗"), ParamLightMin);
-                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "最亮"), ParamLightMax);
+                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("最暗", "Min Light")), ParamLightMin);
+                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("最亮", "Max Light")), ParamLightMax);
             }
             else
             {
-                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "亮度"), ParamLight);
+                SetControlSubParameter(AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("亮度", "Brightness")), ParamLight);
             }
 
             var anyAdditional = p.AllowValueControl || p.AllowHueControl || p.AllowGammaControl ||
@@ -663,13 +667,13 @@ namespace Kuro.NTLLC.Editor
 
             void AdditionalControls(VRCExpressionsMenu menu)
             {
-                if (p.AllowValueControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "明度"), ParamValue);
-                if (p.AllowHueControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "色相"), ParamHue);
-                if (p.AllowGammaControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "伽马"), ParamGamma);
-                if (p.AllowSaturationControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "饱和度"), ParamSaturation);
-                if (p.AllowMonochromeControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "灯光单色化"), ParamMono);
-                if (p.AllowUnlitControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "无光照"), ParamUnlit);
-                if (p.AllowColorTempControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, "色温"), ParamTemp);
+                if (p.AllowValueControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("明度", "Value")), ParamValue);
+                if (p.AllowHueControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("色相", "Hue")), ParamHue);
+                if (p.AllowGammaControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("伽马", "Gamma")), ParamGamma);
+                if (p.AllowSaturationControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("饱和度", "Saturation")), ParamSaturation);
+                if (p.AllowMonochromeControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("灯光单色化", "Light Monochrome")), ParamMono);
+                if (p.AllowUnlitControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("无光照", "Unlit")), ParamUnlit);
+                if (p.AllowColorTempControl) SetControlSubParameter(AddControl(menu, VRCExpressionsMenu.Control.ControlType.RadialPuppet, L("色温", "Color Temp")), ParamTemp);
             }
 
             if (p.IsGroupingAdditionalControls && anyAdditional)
@@ -677,7 +681,7 @@ namespace Kuro.NTLLC.Editor
                 var subMenu = NewMenu();
                 AdditionalControls(subMenu);
                 context.AssetSaver.SaveAsset(subMenu);
-                var subControl = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.SubMenu, "更多控制");
+                var subControl = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.SubMenu, L("更多控制", "More"));
                 subControl.subMenu = subMenu;
             }
             else if (anyAdditional)
@@ -694,13 +698,13 @@ namespace Kuro.NTLLC.Editor
                     SetControlParameter(button, ParamPreset, i + 1);
                 }
                 context.AssetSaver.SaveAsset(presetMenu);
-                var presetControl = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.SubMenu, "预设");
+                var presetControl = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.SubMenu, L("预设", "Presets"));
                 presetControl.subMenu = presetMenu;
             }
 
             if (p.AddResetButton)
             {
-                var reset = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.Button, "重置");
+                var reset = AddControl(rootMenu, VRCExpressionsMenu.Control.ControlType.Button, L("重置", "Reset"));
                 SetControlParameter(reset, ParamReset, 1f);
             }
 

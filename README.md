@@ -32,6 +32,12 @@
 - **模块注册**：Shader Core 按 `ProjectSettings/jp.lilxyzw.shadercore.asset` 的白名单编译模块，编辑器启动时会自动把本模块追加进 NonToon 的模块列表并重导入（幂等，只追加不删除）。也可手动执行菜单 **Tools → NonToon Light Limit Changer → 重新注册亮度模块**。
 - **NDMF 插件**：克隆目标材质（`ObjectRegistry.RegisterReplacedObject`，其余工具能追踪）→ 生成 Direct Blend Tree 结构的 FX 层（WD ON，恒驱）→ 挂 `ModularAvatarMergeAnimator` / `ModularAvatarParameters` / MA 菜单项 → 删除设置组件。材质属性动画绑定形如 `material._jp_kuro_nllc_Min`。
 
+## 下载
+
+- GitHub：https://github.com/skyslight1/NonToonLightLimitChanger
+- Release（v1.2.0）：https://github.com/skyslight1/NonToonLightLimitChanger/releases/tag/v1.2.0
+- BOOTH（免费）：发布后在此填入
+
 ## 安装
 
 把本文件夹放进工程的 `Packages/`（或打成 VPM 包用 VCC/ALCOM 安装）。需要工程里已有 NonToon、Shader Core、Modular Avatar、NDMF。

@@ -133,6 +133,9 @@ namespace Kuro.NTLLC.Editor
                             parameters.FindPropertyRelative(nameof(NTLLCParameters.MenuCustomPath)),
                             new GUIContent("页面路径", "用 / 分层，最多 4 级，如 插件/NTLLC"));
                     EditorGUILayout.PropertyField(
+                        parameters.FindPropertyRelative(nameof(NTLLCParameters.MenuLanguage)),
+                        new GUIContent("菜单语言 Menu Language", "生成的表情菜单文字：中文 / English"));
+                    EditorGUILayout.PropertyField(
                         serializedObject.FindProperty(nameof(NonToonLightLimitChanger.WriteDefaults)),
                         new GUIContent("Write Defaults", "Match Avatar：交给 Modular Avatar 判断"));
                     EditorGUILayout.PropertyField(

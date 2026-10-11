@@ -128,6 +128,18 @@ namespace Kuro.NTLLC
 
         /// <summary>MenuInstallMode=CustomPath 时的页面路径（用 / 分层，如「插件/NTLLC」）；构建时在组件物体下自动生成页面链。</summary>
         public string MenuCustomPath = "插件/NTLLC";
+
+        /// <summary>生成的表情菜单文字语言。</summary>
+        public NTLLCMenuLanguage MenuLanguage = NTLLCMenuLanguage.Chinese;
+    }
+
+    /// <summary>表情菜单文字语言。</summary>
+    public enum NTLLCMenuLanguage
+    {
+        /// <summary>中文（默认）。</summary>
+        Chinese = 0,
+        /// <summary>English menu labels.</summary>
+        English = 1,
     }
 
     /// <summary>一个预设 = 一个菜单按钮，按下时把所有启用的滑条设为这里的值（0-1 的滑条位置）。</summary>
